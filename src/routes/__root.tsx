@@ -18,9 +18,9 @@ export const Route = createRootRoute({
       { name: "theme-color", content: "#f6f4ef" },
     ],
     links: [
-      { rel: "icon", type: "image/png", href: "/logo-pons.png" },
-      { rel: "shortcut icon", type: "image/png", href: "/logo-pons.png" },
-      { rel: "apple-touch-icon", href: "/icon-180.png" },
+      { rel: "icon", type: "image/png", href: "/logo-pons.png?v=2" },
+      { rel: "shortcut icon", type: "image/png", href: "/logo-pons.png?v=2" },
+      { rel: "apple-touch-icon", href: "/icon-180.png?v=2" },
       { rel: "stylesheet", href: appCss },
       { rel: "manifest", href: "/__grok/manifest.webmanifest" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
