@@ -19,10 +19,10 @@ export const Route = createRootRoute({
     ],
     links: [
       { rel: "icon", type: "image/png", href: "/logo-pons.png" },
-      { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
+      { rel: "shortcut icon", type: "image/png", href: "/logo-pons.png" },
+      { rel: "apple-touch-icon", href: "/icon-180.png" },
       { rel: "stylesheet", href: appCss },
       { rel: "manifest", href: "/__grok/manifest.webmanifest" },
-      { rel: "apple-touch-icon", href: "/__grok/icon-180.png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
