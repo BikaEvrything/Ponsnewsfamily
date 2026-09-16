@@ -1,0 +1,38 @@
+{
+  "url": "http://127.0.0.1:8081/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "PONS NEWS",
+      "hasCanvas": false,
+      "bodyTextLen": 3377,
+      "bodyTextHash": "1fc6c6eb6f793dc7db50113c90767aff8fe2b0ed83835df5114742bc9cc9e7f9",
+      "bodyTextPrefix": "Launchpad @ponsnewsfamily Degraded performance. We are covering ",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "PONS NEWS",
+      "hasCanvas": false,
+      "bodyTextLen": 3353,
+      "bodyTextHash": "62177e758a51ddc76824dccc4804ba3a13327371232a9cdea0bb6c6c87a544bf",
+      "bodyTextPrefix": "X Degraded performance. We are covering a backend upgrade ahead ",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-built.json",
+  "divergesFromBaseline": false,
+  "baselineReasons": []
+}

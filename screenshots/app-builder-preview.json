@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "PONS NEWS",
+      "hasCanvas": false,
+      "bodyTextLen": 6442,
+      "bodyTextHash": "da7ddebc28c7efa6c602bbc0e1386c0ad83676424a8dd22d3dcfe27eb6a63ab4",
+      "bodyTextPrefix": "PONS NEWS Time-lapse launch · Pons, Robinhood, stocks Enter the ",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "PONS NEWS",
+      "hasCanvas": false,
+      "bodyTextLen": 6406,
+      "bodyTextHash": "2bcf772fd0e2195946a7cd86a6de6a705852f022f08ccd373e9e148d7f0beaf2",
+      "bodyTextPrefix": "PONS NEWS Time-lapse launch · Pons, Robinhood, stocks Enter the ",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-preview.json"
+}
