@@ -1,7 +1,7 @@
 import * as React from "react";
 
 export function PriceChart({
-  values = [100, 120, 115, 135, 130, 150, 145, 160],
+  values,
   up = true,
   height = 168,
   label = "Session chart",
@@ -11,10 +11,12 @@ export function PriceChart({
   height?: number;
   label?: string;
 }) {
+  const defaultData = up
+    ? [100, 108, 105, 115, 112, 128, 122, 140]
+    : [140, 122, 128, 112, 115, 105, 108, 100];
+
   const safeValues =
-    Array.isArray(values) && values.length >= 2
-      ? values
-      : [100, 120, 115, 135, 130, 150, 145, 160];
+    Array.isArray(values) && values.length >= 2 ? values : defaultData;
 
   const min = Math.min(...safeValues);
   const max = Math.max(...safeValues);
@@ -34,10 +36,14 @@ export function PriceChart({
   const tint = up ? "rgba(34, 197, 94, 0.15)" : "rgba(239, 68, 68, 0.15)";
 
   return (
-    <figure className="w-full overflow-hidden rounded-[20px] border border-gray-200 bg-white p-2">
+    <figure
+      className="w-full overflow-hidden rounded-[14px] border border-gray-200/50 bg-black/5 p-1 dark:bg-white/5 block"
+      style={{ minHeight: `${height}px` }}
+    >
       <svg
         viewBox={`0 0 ${width} ${height}`}
-        className="block h-auto w-full"
+        className="block w-full"
+        style={{ height: `${height}px` }}
         role="img"
         aria-label={label}
       >
