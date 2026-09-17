@@ -1,5 +1,5 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
-import { RefreshCw, Search } from "lucide-react";
+import { Check, Copy, RefreshCw, Search } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { ArticleCard } from "@/components/article-card";
 import { PriceChart } from "@/components/price-chart";
@@ -17,6 +17,8 @@ import {
 } from "@/lib/news";
 import { getPonsWire } from "@/lib/pons-sync";
 
+const PONSNEWS_CA = "0x60038e94690cdB1e5b6016c55ddC151e41Ac4836";
+
 export const Route = createFileRoute("/")({
   loader: () => getPonsWire(),
   component: Home,
@@ -31,6 +33,74 @@ function ChangeText({ value, abs }: { value: string; abs: number }) {
     >
       {value}
     </span>
+  );
+}
+
+function PonsCaSection() {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(PONSNEWS_CA);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  return (
+    <section className="mx-auto mt-6 w-full max-w-6xl px-4 pb-12 sm:px-6">
+      <div className="rounded-[28px] border border-line bg-card p-6 sm:p-8">
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+          
+          <div className="space-y-3 lg:max-w-md">
+            <span className="inline-block rounded-full bg-live/10 px-3 py-1 text-[11px] font-medium text-live tracking-wider uppercase">
+              Official Contract Address
+            </span>
+            <h3 className="font-serif text-2xl tracking-tight text-ink">
+              PONSNEWS Token CA
+            </h3>
+            <p className="text-xs text-muted leading-relaxed">
+              Official smart contract deployed for PONSNEWS on Robinhood Chain.
+            </p>
+
+            <div className="flex items-center gap-2 rounded-2xl border border-line bg-paper p-2.5">
+              <span className="truncate font-mono text-xs text-ink select-all">
+                {PONSNEWS_CA}
+              </span>
+              <button
+                type="button"
+                onClick={handleCopy}
+                className="inline-flex shrink-0 items-center gap-1.5 rounded-xl bg-ink px-3 py-1.5 text-xs font-medium text-paper hover:opacity-90 transition-all cursor-pointer"
+              >
+                {copied ? (
+                  <>
+                    <Check className="size-3.5 text-live" />
+                    <span>Copied</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy className="size-3.5" />
+                    <span>Copy CA</span>
+                  </>
+                )}
+              </button>
+            </div>
+          </div>
+
+          <div className="w-full lg:max-w-md">
+            <div className="mb-2 flex items-center justify-between text-xs">
+              <span className="font-mono text-muted">$PONSNEWS Live Chart</span>
+              <span className="font-mono text-live font-medium">+24.8%</span>
+            </div>
+            <PriceChart
+              values={[100, 115, 110, 130, 125, 145, 140, 168]}
+              up={true}
+              height={110}
+              label="PONSNEWS Contract Chart"
+            />
+          </div>
+
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -147,7 +217,7 @@ function Home() {
           <button
             type="button"
             onClick={() => void refresh()}
-            className="inline-flex h-10 items-center gap-2 rounded-full border border-line px-3 text-ink-soft"
+            className="inline-flex h-10 items-center gap-2 rounded-full border border-line px-3 text-ink-soft cursor-pointer"
           >
             <RefreshCw className={`size-3.5 ${syncing ? "animate-spin" : ""}`} />
             Refresh wire
@@ -181,8 +251,8 @@ function Home() {
                 onClick={() => setCategory(item)}
                 className={
                   category === item
-                    ? "rounded-full bg-ink px-3 py-2 text-xs font-medium whitespace-nowrap text-paper"
-                    : "rounded-full px-3 py-2 text-xs font-medium whitespace-nowrap text-ink-soft"
+                    ? "rounded-full bg-ink px-3 py-2 text-xs font-medium whitespace-nowrap text-paper cursor-pointer"
+                    : "rounded-full px-3 py-2 text-xs font-medium whitespace-nowrap text-ink-soft cursor-pointer"
                 }
               >
                 {item}
@@ -273,7 +343,7 @@ function Home() {
       ) : null}
 
       {showMarket ? (
-        <section className="mx-auto mt-4 w-full max-w-6xl px-4 pb-6 sm:px-6">
+        <section className="mx-auto mt-4 w-full max-w-6xl px-4 pb-4 sm:px-6">
           <div className="grid gap-4 lg:grid-cols-2">
             <div className="rounded-[28px] border border-line bg-card p-5 sm:p-6">
               <p className="text-[11px] font-medium tracking-[0.14em] text-muted uppercase">
@@ -332,8 +402,11 @@ function Home() {
           </div>
         </section>
       ) : (
-        <div className="pb-6" />
+        <div className="pb-2" />
       )}
+
+      {/* PONSNEWS CA & CHART SECTION DI PALING BAWAH */}
+      <PonsCaSection />
     </main>
   );
 }
